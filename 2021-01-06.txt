@@ -1,0 +1,3 @@
+-Today, I have done practice of git revert,merge commit,git log commands.
+-I have learnt about how to make a file as an ignore file with hit ignore command.
+-I had complete the example given by sir that-"how does HEAD changed with branch to branch!"
