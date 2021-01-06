@@ -1,7 +1,0 @@
-Today I have done practice of some git commands like mkdir,push,pull,remote,etc.
-I have also learnt - How make new repository
-                   - how to make branches
-                   - push any files into branches
-                   - how to add and commit the files
-                   - merging to branches 
-                   - how to get the difference between current file and main file
