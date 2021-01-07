@@ -1,0 +1,8 @@
+-Today,I have learnt what is difference between undo,revert and reset,sqash commands.
+-I also got knowledge of
+	-revert and reset commands.
+	-How to get difference between two commit with commit ID or with HEAD of commits.
+	-What is Deteached HEAD?
+	-What is meld tool?how we can done merge and diff opration with Meld tool?
+	-Cycle of how we can pull and edit other profile's repo into our repo and send them back by pull request to them.
+    -soft,hard and mixed reset
