@@ -1,0 +1,11 @@
+Today I have learnt basics of javascript like,
+        -external and inline javascript
+        -type coercion
+        -variable mutation
+        -variable namig rule
+        -Data-types used in javascript
+        -operators
+        -operators precedence
+
+I have also learnt html tags like head,footer,div,lists.
+I made one practice sample in which,i have used <thead>,<tbody>,<tfoot> and also used colspan and rowspan attributes.
