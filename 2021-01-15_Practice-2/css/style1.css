@@ -1,0 +1,22 @@
+table,th,td{
+    border: 1px solid black;
+    margin: auto;
+    border-collapse:collapse;
+    text-align: left;
+}
+table th{
+    background-color: #98FF98;
+}
+td:nth-child(1){
+    background-color: #AFDCEC;
+}
+td:nth-child(3){
+    background-color: #FBBBB9;
+}
+td:nth-child(4){
+    background-color: #F3E5AB;
+}
+span{
+    color: blue;
+    text-decoration: underline;
+}
