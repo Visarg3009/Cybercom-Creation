@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Admin Dashboard</title>
+    
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+    <ul>
+        <h4><label id="name">Hello, </label></h4>
+        <li><a href="Dashboard.html">Dashboard</a></li>
+        <li><a href="User.html">Users</a></li>
+        <li><a href="LoginSession.html">Login Session</a></li>
+        <li><a onclick="logout();">Logout</a></li>
+    </ul>
+      
+    <div style="margin-left:20%;padding:1px 16px;height:1000px;">
+        <h2>Dashboard</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card bg-info">
+                    <div class="card-body">
+                      <h5 class="card-title">Users < 18 Years</h5><br>
+                      <h5 class="card-1" id="age_18"></h5>
+                      <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-success">
+                    <div class="card-body">
+                      <h5 class="card-title">Users 18-50 Years</h5><br>
+                      <h5 class="card-1" id="age_med"></h5><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-info">
+                    <div class="card-body">
+                      <h5 class="card-title">Users > 50 Years</h5><br>
+                      <h5 class="card-1" id="age_50"></h5><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h4></h4>
+    </div>  
+    <script src="dashboard.js"></script>
+</body>
+</html>

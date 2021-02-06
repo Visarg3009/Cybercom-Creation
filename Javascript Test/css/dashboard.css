@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+}
+  
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #ff7d12;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+  
+li a{
+    display: block;
+    color: #000;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.block{
+    background-color:darksalmon;
+    width: 30%;
+}
