@@ -1,0 +1,14 @@
+h3{
+    text-align: center;
+}
+.heading{
+    color: cornsilk;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    font-size: 3rg;
+}
+.form-control{
+    font-family: fontawesome;
+}
