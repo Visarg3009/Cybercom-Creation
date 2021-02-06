@@ -21,21 +21,21 @@
                 <form action="">
                   
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="name" id="exampleInputfirstname" placeholder="&#xf007; Full name">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="&#xf007; Full name">
                 </div>
 
                 <div class="mb-3">
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="&#xf0e0; Eg:example@email.com">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="&#xf0e0; Eg:example@email.com">
                 </div>
                   
                 <div class="mb-3">
-                    <input type="password" class="form-control" name="password" id="exampleInputPass" placeholder="&#xf2b9; Password">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="&#xf2b9; Password">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" name="confirm_password" id="exampleInputPass1" placeholder="&#xf2b9; Confirm Password">
+                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="&#xf2b9; Confirm Password">
                 </div>  
                 <div class="mb-3">
-                    <select id="inputCity" name="city" class="form-control">
+                    <select id="city" name="city" class="form-control">
                         <option selected>Select City</option>
                         <option value="Ahmedabad">Ahmedabad</option>
                         <option value="Rajkot">Rajkot</option>
@@ -46,7 +46,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <select id="inputState" name="state" class="form-control">
+                    <select id="state" name="state" class="form-control">
                         <option selected>Select State</option>
                         <option value="Gujarat">Gujarat</option>
                         <option value="Maharastra">Maharastra</option>
@@ -59,8 +59,9 @@
                     <input type="checkbox" name="terms" id="terms"
                         onchange="document.getElementById('submit').disabled = !this.checked;"> Terms & Coditions
                 </div>
+            
                   <div class="text-center">
-                  <button type="submit" class="btn btn-warning" onclick="addElement();">REGISTER</button>
+                  <button type="submit" id="submit" class="btn btn-warning" onclick="addElement();">REGISTER</button>
                 </div>
                 </form>
               </div>

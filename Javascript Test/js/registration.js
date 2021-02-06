@@ -9,8 +9,6 @@ function addElement() {
     var city = document.getElementById('city').value;
     var state = document.getElementById('state').value;
 
-
-
     if(password !== confirm_password) {
         alert("Does not match password and confirm password!");
     }
@@ -52,7 +50,7 @@ function addElement() {
         localStorage.setItem("array", JSON.stringify(array));
         var message = window.confirm("registerd successfully");
         if (message) {
-            window.location.href = "login.html";
+            window.location.href = "Login.html";
         }
     }
 };
