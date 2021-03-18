@@ -1,0 +1,13 @@
+<?php
+namespace Model\Admin;
+\Mage::loadFileByClassName('Model\Core\Session');
+
+class Session extends \Model\Core\Session
+{
+    function __CONSTRUCT()
+    {
+        parent::__CONSTRUCT();
+        $this->setNameSpace('Admin');
+    }
+}
+?>
