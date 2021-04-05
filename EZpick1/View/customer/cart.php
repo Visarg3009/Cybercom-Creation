@@ -1,0 +1,1 @@
+<?php echo $this->createBlock('Block\Customer\Cart\Grid')->toHtml(); ?>
