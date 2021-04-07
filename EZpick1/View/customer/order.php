@@ -1,11 +1,9 @@
-Order Placed!!
-<?php /*
 <?php $order = $this->getOrder(); ?>
 <?php $orderItems = $this->getItems($order->orderId); ?>
 <?php $orderAddresses = $this->getAddresses($order->orderId); ?>
 
 <div class="container">
-    <h3>Order Details</h3>
+    <h3>Order Details :</h3>
     <hr>
     <table class="table table-striped table-hover table-bordered">
         <thead>
@@ -20,12 +18,14 @@ Order Placed!!
             <tr>
                 <td><?= $order->orderId;?></td>
                 <td><?= $order->customerName;?></td>
-                <td><?= $order->Email;?></td>
+                <td><?= $order->email;?></td>
             </tr>
             <?php endif;?>
         </tbody>
-    </table>
+    </table><br>
 
+    <h3>Order Payment-Shipping Method Details :</h3>
+    <hr>
     <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr class="bg-dark text-white text-center">
@@ -47,9 +47,9 @@ Order Placed!!
             </tr>
             <?php endif;?>
         </tbody>
-    </table><br><br>
+    </table><br>
 
-    <h3>Ordered Item Details</h3>
+    <h3>Ordered Item Details :</h3>
     <hr>
     <table class="table table-striped table-hover table-bordered">
         <thead>
@@ -63,15 +63,47 @@ Order Placed!!
             </tr>
         </thead>
         <tbody>
-            <?php if ($order) :?>
+            <?php if ($orderItems) :?>
+            <?php foreach ($orderItems->getData() as $key => $orderItem) :?>
             <tr>
-                <td><?= $order->paymentMethodName;?></td>
-                <td><?= $order->shippingMethodName;?></td>
-                <td><?= $order->shippingMethodCode;?></td>
-                <td><?= $order->shippingCharges;?></td>
-                <td><?= $order->shippingAmount;?></td>
+                <td><?= $orderItem->sku;?></td>
+                <td><?= $orderItem->name;?></td>
+                <td><?= $orderItem->basePrice;?></td>
+                <td><?= $orderItem->quantity;?></td>
+                <td><?= $orderItem->discount;?></td>
+                <td><?= $orderItem->Total;?></td>
             </tr>
+            <?php endforeach; ?>
             <?php endif;?>
         </tbody>
-    </table>
-</div>*/ ?>
+    </table><br>
+
+    <h3>Ordered Address Details :</h3>
+    <hr>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr class="bg-dark text-white text-center">
+                <th>Address-Type</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>ZipCode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if ($orderAddresses) :?>
+            <?php foreach ($orderAddresses->getData() as $key => $orderAddress) :?>
+            <tr>
+                <td><?= $orderAddress->addressType;?></td>
+                <td><?= $orderAddress->address;?></td>
+                <td><?= $orderAddress->city;?></td>
+                <td><?= $orderAddress->state;?></td>
+                <td><?= $orderAddress->country;?></td>
+                <td><?= $orderAddress->zipcode;?></td>
+            </tr>
+            <?php endforeach; ?>
+            <?php endif;?>
+        </tbody>
+    </table><br>
+</div>

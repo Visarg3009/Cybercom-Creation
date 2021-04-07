@@ -11,12 +11,8 @@ class CheckOut extends \Controller\Core\Customer
         $this->toHtmlLayout();
     }
 
-    public function getCart($customerId = null)
+    public function getCart()
     {
-        // $session = \Mage::getModel('Model\Customer\Session');
-        // if ($customerId) {
-        //     $session->customerId = $customerId;
-        // }
         if($_SESSION['customer_Id']) {
             $customer_Id = $_SESSION['customer_Id'];
         }
@@ -32,7 +28,7 @@ class CheckOut extends \Controller\Core\Customer
     }
 
     public function saveBillingAction()
-    { 
+    {
         try {
             $billing = $this->getRequest()->getPost('billing');
             $cartAddress = \Mage::getModel('Model\Cart\Address');

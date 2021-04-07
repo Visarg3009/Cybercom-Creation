@@ -1,5 +1,4 @@
 <?php
-
 namespace Block\Customer\Cart;
 
 class CheckOut extends \Block\Core\Template
