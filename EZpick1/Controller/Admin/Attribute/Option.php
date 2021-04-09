@@ -29,7 +29,7 @@ class Option extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -59,7 +59,7 @@ class Option extends \Controller\Core\Admin
 
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -69,7 +69,7 @@ class Option extends \Controller\Core\Admin
             $attribute = \Mage::getModel('Model\Attribute');
 
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
 
             $attributeId = $this->getRequest()->getGet('id');
@@ -111,7 +111,7 @@ class Option extends \Controller\Core\Admin
                 }
             }
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

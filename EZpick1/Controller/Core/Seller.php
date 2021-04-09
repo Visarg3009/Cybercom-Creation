@@ -14,7 +14,7 @@ class Seller extends Abstracts
             $layout = \Mage::getBlock('Block\Seller\Layout');
         }
         if (!$layout instanceof \Block\Seller\Layout) {
-           throw new Exception("Must be an instance of \Block\Seller\Layout");
+           throw new \Exception("Must be an instance of \Block\Seller\Layout");
         }
         $this->layout = $layout;
         return $this;

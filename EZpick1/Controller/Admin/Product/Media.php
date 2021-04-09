@@ -29,7 +29,7 @@ class Media extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -44,7 +44,7 @@ class Media extends \Controller\Core\Admin
             if ($id) {    
                 $productMedia = $productMedia->load($id);
                 if (!$productMedia) {
-                    throw new Exception("No productMedia Found!");
+                    throw new \Exception("No productMedia Found!");
                 }
             }
             $form->setTableRow($productMedia);
@@ -64,7 +64,7 @@ class Media extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -75,7 +75,7 @@ class Media extends \Controller\Core\Admin
             $productMedia = \Mage::getModel('Model\ProductMedia');
 
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
             $product_Id = $this->getRequest()->getGet('id');
             $productImg = $this->getRequest()->getFiles('productFile');
@@ -99,7 +99,7 @@ class Media extends \Controller\Core\Admin
             }
             $this->gridAction();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         
@@ -111,7 +111,7 @@ class Media extends \Controller\Core\Admin
             $product = \Mage::getModel('Model\Product');
 
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
 
             $product_Id = $this->getRequest()->getGet('id');
@@ -120,7 +120,7 @@ class Media extends \Controller\Core\Admin
             if ($product_Id) {
                 $product =  $product->load($product_Id); 
                 if(!$product){
-                 throw new Exception("Unable to Load data.");
+                 throw new \Exception("Unable to Load data.");
                 }
             }
 
@@ -153,7 +153,7 @@ class Media extends \Controller\Core\Admin
                 $productMedia->save();
             }
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
@@ -169,7 +169,7 @@ class Media extends \Controller\Core\Admin
                 $productMedia->delete($image_Id);
             }
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

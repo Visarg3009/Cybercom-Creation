@@ -30,7 +30,7 @@ class GroupPrice extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -62,7 +62,7 @@ class GroupPrice extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -73,7 +73,7 @@ class GroupPrice extends \Controller\Core\Admin
             $product = \Mage::getModel('Model\Product');
 
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
 
             $productId = $this->getRequest()->getGet('id');
@@ -101,7 +101,7 @@ class GroupPrice extends \Controller\Core\Admin
                 }
             }
         
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

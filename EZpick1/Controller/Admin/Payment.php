@@ -18,7 +18,7 @@ class Payment extends \Controller\Core\Admin
             ];
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -32,7 +32,7 @@ class Payment extends \Controller\Core\Admin
             if ($id) {    
                 $payment = $payment->load($id);
                 if (!$payment) {
-                    throw new Exception("No Payment Found!");
+                    throw new \Exception("No Payment Found!");
                 }
             }
             $form->setTableRow($payment);
@@ -48,7 +48,7 @@ class Payment extends \Controller\Core\Admin
             ];
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -58,7 +58,7 @@ class Payment extends \Controller\Core\Admin
             $payment = \Mage::getModel('Model\Payment');
             
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
             $method_Id = $this->getRequest()->getGet('id');
             $paymentData = $this->getRequest()->getPost('payment');
@@ -70,7 +70,7 @@ class Payment extends \Controller\Core\Admin
             }
             $payment->setData($paymentData);
             $payment->save();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
@@ -82,17 +82,17 @@ class Payment extends \Controller\Core\Admin
             $method_Id = (int) $this->getRequest()->getGet('id');
 
             if (!$method_Id) {
-                throw new Exception("Id is required");
+                throw new \Exception("Id is required");
             }
             if ($method_Id) {
                 $payment =  $payment->load($method_Id); 
                 if(!$payment){
-                 throw new Exception("Unable to Load data.");
+                 throw new \Exception("Unable to Load data.");
                 }
             }
             $payment->delete($method_Id);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

@@ -29,7 +29,7 @@ class Customer extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        }  catch (Exception $e) {
+        }  catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -44,7 +44,7 @@ class Customer extends \Controller\Core\Admin
             if ($id) {    
                 $customer = $customer->load($id);
                 if (!$customer) {
-                    throw new Exception("No customer Found!");
+                    throw new \Exception("No customer Found!");
                 }
             }
             $form->setTableRow($customer);
@@ -64,7 +64,7 @@ class Customer extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -77,7 +77,7 @@ class Customer extends \Controller\Core\Admin
                 $customer_address = \Mage::getModel('Model\CustomerAddress');
                 
                 if (!$this->getRequest()->isPost()) {
-                    throw new Exception("invalid Request");
+                    throw new \Exception("invalid Request");
                 }
                
                 $billingData = $this->getRequest()->getPost('billing');
@@ -110,7 +110,7 @@ class Customer extends \Controller\Core\Admin
                 $customer = \Mage::getModel('Model\Customer');
                 
                 if (!$this->getRequest()->isPost()) {
-                    throw new Exception("invalid Request");
+                    throw new \Exception("invalid Request");
                 }
                 $customer_Id = $this->getRequest()->getGet('id');
                 $customerData = $this->getRequest()->getPost('customer');
@@ -127,7 +127,7 @@ class Customer extends \Controller\Core\Admin
                 $customer->save();
             }
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
@@ -139,18 +139,18 @@ class Customer extends \Controller\Core\Admin
             $customer_Id = (int) $this->getRequest()->getGet('id');
 
             if (!$customer_Id) {
-                throw new Exception("Id is required");
+                throw new \Exception("Id is required");
             }
             
             if ($customer_Id) {
                 $customer =  $customer->load($customer_Id); 
                 if(!$customer){
-                 throw new Exception("Unable to Load data.");
+                 throw new \Exception("Unable to Load data.");
                 }
             }
             $customer->delete($customer_Id);
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

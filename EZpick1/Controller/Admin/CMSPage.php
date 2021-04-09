@@ -29,7 +29,7 @@ class CMSPage extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -44,7 +44,7 @@ class CMSPage extends \Controller\Core\Admin
             if ($id) {    
                 $cmsPage = $cmsPage->load($id);
                 if (!$cmsPage) {
-                    throw new Exception("No cmsPage Found!");
+                    throw new \Exception("No cmsPage Found!");
                 }
             }
             $form->setTableRow($cmsPage);
@@ -63,7 +63,7 @@ class CMSPage extends \Controller\Core\Admin
 
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -73,7 +73,7 @@ class CMSPage extends \Controller\Core\Admin
             $cmsPage = \Mage::getModel('Model\CMSPage');
 
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
 
             $page_Id = $this->getRequest()->getGet('id');
@@ -95,7 +95,7 @@ class CMSPage extends \Controller\Core\Admin
                 $this->getMessage()->setFailure('Unable To Save Record');
             }
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->redirect('grid',Null,Null,true);
@@ -106,7 +106,7 @@ class CMSPage extends \Controller\Core\Admin
             $page_Id = (int) $this->getRequest()->getGet('id');
 
             if (!$page_Id) {
-                throw new Exception("Id is required");
+                throw new \Exception("Id is required");
             }
 
             $model = \Mage::getModel('Model\CMSPage');
@@ -117,7 +117,7 @@ class CMSPage extends \Controller\Core\Admin
             }
 
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->redirect('grid',Null,Null,true);

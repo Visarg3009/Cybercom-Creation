@@ -14,7 +14,7 @@ class Admin extends Abstracts
             $layout = \Mage::getBlock('Block\Admin\Layout');
         }
         if (!$layout instanceof \Block\Admin\Layout) {
-           throw new Exception("Must be an instance of \Block\Admin\Layout");
+           throw new \Exception("Must be an instance of \Block\Admin\Layout");
         }
         $this->layout = $layout;
         return $this;

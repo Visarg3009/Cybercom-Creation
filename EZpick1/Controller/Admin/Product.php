@@ -29,7 +29,7 @@ class Product extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -44,7 +44,7 @@ class Product extends \Controller\Core\Admin
             if ($id) {    
                 $product = $product->load($id);
                 if (!$product) {
-                    throw new Exception("No Product Found!");
+                    throw new \Exception("No Product Found!");
                 }
             }
             $form->setTableRow($product);
@@ -64,7 +64,7 @@ class Product extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -74,7 +74,7 @@ class Product extends \Controller\Core\Admin
             $product = \Mage::getModel('Model\Product');
 
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
 
             $product_id = $this->getRequest()->getGet('id');
@@ -97,7 +97,7 @@ class Product extends \Controller\Core\Admin
                 $this->getMessage()->setFailure('Unable To Save Record');
             }
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
@@ -109,13 +109,13 @@ class Product extends \Controller\Core\Admin
             $product_id = (int) $this->getRequest()->getGet('id');
 
             if (!$product_id) {
-                throw new Exception("Id is required");
+                throw new \Exception("Id is required");
             }
 
             if ($product_id) {
                 $product =  $product->load($product_id); 
                 if(!$product){
-                 throw new Exception("Unable to Load data.");
+                 throw new \Exception("Unable to Load data.");
                 }
             }
 
@@ -126,7 +126,7 @@ class Product extends \Controller\Core\Admin
             }
 
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

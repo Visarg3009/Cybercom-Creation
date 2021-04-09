@@ -29,7 +29,7 @@ class Attribute extends \Controller\Core\Admin
             header('Content-Type:application/json');
             echo json_encode($response);
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -62,7 +62,7 @@ class Attribute extends \Controller\Core\Admin
 
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $e->getMessage();
         }
     }
@@ -72,7 +72,7 @@ class Attribute extends \Controller\Core\Admin
             $attribute = \Mage::getModel('Model\Attribute');
             
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
             $attributeId = $this->getRequest()->getGet('id');
             $attributeData = $this->getRequest()->getPost('attribute');
@@ -91,7 +91,7 @@ class Attribute extends \Controller\Core\Admin
             $query = "ALTER TABLE `{$attribute->entityTypeId}` ADD `{$attribute->code}` {$attribute->backendType}(45);";
             $attribute->getAdapter()->update($query);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
@@ -103,13 +103,13 @@ class Attribute extends \Controller\Core\Admin
             $attributeId = (int) $this->getRequest()->getGet('id');
 
             if (!$attributeId) {
-                throw new Exception("Id is required");
+                throw new \Exception("Id is required");
             }
 
             if ($attributeId) {
                 $attribute =  $attribute->load($attributeId); 
                 if(!$attribute){
-                 throw new Exception("Unable to Load data.");
+                 throw new \Exception("Unable to Load data.");
                 }
             }
 
@@ -121,10 +121,9 @@ class Attribute extends \Controller\Core\Admin
             } else {
                 $this->getMessage()->setFailure('Unable To Delete Record.');
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
     }
 }
-?>

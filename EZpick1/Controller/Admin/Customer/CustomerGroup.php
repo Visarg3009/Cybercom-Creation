@@ -28,7 +28,7 @@ class CustomerGroup extends \Controller\Core\Admin
 
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -43,7 +43,7 @@ class CustomerGroup extends \Controller\Core\Admin
             if ($id) {    
                 $customerGroup = $customerGroup->load($id);
                 if (!$customerGroup) {
-                    throw new Exception("No CustomerGroup Found!");
+                    throw new \Exception("No CustomerGroup Found!");
                 }
             }
             $form->setTableRow($customerGroup);
@@ -62,7 +62,7 @@ class CustomerGroup extends \Controller\Core\Admin
 
             header('Content-Type:application/json');
             echo json_encode($response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
     }
@@ -72,7 +72,7 @@ class CustomerGroup extends \Controller\Core\Admin
             $customerGroup = \Mage::getModel('Model\CustomerGroup');
             
             if (!$this->getRequest()->isPost()) {
-                throw new Exception("invalid Request");
+                throw new \Exception("invalid Request");
             }
             $Group_ID = $this->getRequest()->getGet('id');
             $customerGroupData = $this->getRequest()->getPost('customerGroup');
@@ -91,7 +91,7 @@ class CustomerGroup extends \Controller\Core\Admin
                 $this->getMessage()->setFailure('Unable To Save Record');
             }
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();
@@ -103,12 +103,12 @@ class CustomerGroup extends \Controller\Core\Admin
             $Group_ID = (int) $this->getRequest()->getGet('id');
 
             if (!$Group_ID) {
-                throw new Exception("Id is required");
+                throw new \Exception("Id is required");
             }
             if ($Group_ID) {
                 $customerGroup =  $customerGroup->load($Group_ID); 
                 if(!$customerGroup){
-                 throw new Exception("Unable to Load data.");
+                 throw new \Exception("Unable to Load data.");
                 }
             }
             
@@ -118,7 +118,7 @@ class CustomerGroup extends \Controller\Core\Admin
                 $this->getMessage()->setFailure('Unable To Delete Record.');
             }
             
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
         }
         $this->gridAction();

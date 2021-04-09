@@ -14,7 +14,7 @@ class Customer extends Abstracts
             $layout = \Mage::getBlock('Block\Customer\Layout');
         }
         if (!$layout instanceof \Block\Customer\Layout) {
-           throw new Exception("Must be an instance of \Block\Customer\Layout");
+           throw new \Exception("Must be an instance of \Block\Customer\Layout");
         }
         $this->layout = $layout;
         return $this;
